@@ -6,6 +6,7 @@
 package com.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -62,6 +63,7 @@ public class Veterinaria implements Serializable {
     private List<Historial> historialList;
 
     public Veterinaria() {
+        historialList = new ArrayList<>();
     }
 
     public Veterinaria(Integer codigo) {

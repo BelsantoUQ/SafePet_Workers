@@ -40,7 +40,7 @@ public class Comprobante implements Serializable {
     private Integer codigo;
     @Basic(optional = false)
     @Column(name = "medio_de_pago")
-    private int medioDePago;
+    private String medioDePago;
     @JoinColumn(name = "id_afiliado", referencedColumnName = "codigo")
     @ManyToOne
     private Afiliado idAfiliado;
@@ -55,7 +55,7 @@ public class Comprobante implements Serializable {
         this.codigo = codigo;
     }
 
-    public Comprobante(Integer codigo, int medioDePago) {
+    public Comprobante(Integer codigo, String medioDePago) {
         this.codigo = codigo;
         this.medioDePago = medioDePago;
     }
@@ -68,11 +68,11 @@ public class Comprobante implements Serializable {
         this.codigo = codigo;
     }
 
-    public int getMedioDePago() {
+    public String getMedioDePago() {
         return medioDePago;
     }
 
-    public void setMedioDePago(int medioDePago) {
+    public void setMedioDePago(String medioDePago) {
         this.medioDePago = medioDePago;
     }
 

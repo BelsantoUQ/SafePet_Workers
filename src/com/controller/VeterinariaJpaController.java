@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -27,6 +28,11 @@ public class VeterinariaJpaController implements Serializable {
     public VeterinariaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public VeterinariaJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("safe_petPU");
+    }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -173,7 +179,8 @@ public class VeterinariaJpaController implements Serializable {
             em.close();
         }
     }
-
+    
+    
     public int getVeterinariaCount() {
         EntityManager em = getEntityManager();
         try {

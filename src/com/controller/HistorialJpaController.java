@@ -19,6 +19,7 @@ import com.entities.Servicio;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -29,6 +30,11 @@ public class HistorialJpaController implements Serializable {
     public HistorialJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public HistorialJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("safe_petPU");
+    }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {

@@ -19,6 +19,7 @@ import com.entities.Historial;
 import com.entities.Beneficiario;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -29,6 +30,12 @@ public class AfiliadoJpaController implements Serializable {
     public AfiliadoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+     public AfiliadoJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("safe_petPU");
+    }
+    
+   
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {

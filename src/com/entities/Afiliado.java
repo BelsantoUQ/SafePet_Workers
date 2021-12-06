@@ -5,7 +5,9 @@
  */
 package com.entities;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -62,6 +64,9 @@ public class Afiliado implements Serializable {
     private List<Beneficiario> beneficiarioList;
 
     public Afiliado() {
+        this.beneficiarioList = new ArrayList<>();
+        this.historialList = new ArrayList<>();
+        this.comprobanteList = new ArrayList<>();
     }
 
     public Afiliado(Integer codigo) {

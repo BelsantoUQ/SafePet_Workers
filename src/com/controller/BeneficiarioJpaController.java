@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.controller;
 
 import com.controller.exceptions.NonexistentEntityException;
@@ -18,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -28,6 +25,11 @@ public class BeneficiarioJpaController implements Serializable {
     public BeneficiarioJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public BeneficiarioJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("safe_petPU");
+    }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {

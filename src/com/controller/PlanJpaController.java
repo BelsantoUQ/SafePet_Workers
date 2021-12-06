@@ -18,6 +18,7 @@ import com.entities.Comprobante;
 import com.entities.Plan;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -28,6 +29,11 @@ public class PlanJpaController implements Serializable {
     public PlanJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public PlanJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("safe_petPU");
+    }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {

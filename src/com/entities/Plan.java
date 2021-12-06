@@ -6,6 +6,7 @@
 package com.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -53,6 +54,8 @@ public class Plan implements Serializable {
     private List<Comprobante> comprobanteList;
 
     public Plan() {
+        this.comprobanteList = new ArrayList<>();
+        this.servicioList = new ArrayList<>();
     }
 
     public Plan(Integer codigo) {

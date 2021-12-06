@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -25,6 +26,11 @@ public class EmpleadoJpaController implements Serializable {
     public EmpleadoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public EmpleadoJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("safe_petPU");
+    }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -116,12 +122,14 @@ public class EmpleadoJpaController implements Serializable {
     public Empleado findEmpleado(Integer id) {
         EntityManager em = getEntityManager();
         try {
+            
             return em.find(Empleado.class, id);
         } finally {
             em.close();
         }
     }
-
+    
+    
     public int getEmpleadoCount() {
         EntityManager em = getEntityManager();
         try {
